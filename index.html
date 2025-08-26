@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AZOH Marie‑Emmanuelle Grâce — Portfolio</title>
+    <meta name="description"
+        content="Portfolio d'AZOH Marie‑Emmanuelle Grâce, étudiante en développement web : projets, compétences, contact et CV téléchargeable." />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Tailwind custom config
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { manrope: ['Manrope', 'ui-sans-serif', 'system-ui'] },
+                    colors: {
+                        brand: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            200: '#ddd6fe',
+                            300: '#c4b5fd',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed', // primary
+                            700: '#6d28d9',
+                            800: '#5b21b6',
+                            900: '#4c1d95'
+                        },
+                        accent: '#E8144A' // joli rose/rouge vif en accent
+                    },
+                    boxShadow: {
+                        glow: '0 10px 30px rgba(139, 92, 246, 0.35)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Flowbite CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css" rel="stylesheet" />
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <style>
+        :root {
+            color-scheme: light dark;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            font-family: Manrope, ui-sans-serif, system-ui;
+        }
+
+        /* Blobs d'arrière-plan animés */
+        .blob {
+            position: absolute;
+            inset: auto;
+            border-radius: 9999px;
+            filter: blur(60px);
+            opacity: 0.35;
+            pointer-events: none;
+            animation: blob 14s ease-in-out infinite alternate;
+        }
+
+        @keyframes blob {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(40px, -30px) scale(1.1);
+            }
+
+            100% {
+                transform: translate(-20px, 20px) scale(0.95);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200 font-manrope">
+    <!-- ===== NAVBAR ===== -->
+    <header
+        class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60 bg-white/80 dark:bg-slate-950/70 border-b border-white/20 dark:border-slate-800">
+        <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Primary">
+            <div class="flex h-16 items-center justify-between">
+                <a href="#accueil" class="flex items-center gap-2">
+                    <span
+                        class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-brand-600 text-white shadow-glow">A</span>
+                    <span class="text-sm font-semibold tracking-wide text-slate-700 dark:text-slate-100">AZOH
+                        Marie‑Emmanuelle Grâce</span>
+                </a>
+
+                <div class="flex items-center gap-2">
+                    <!-- Theme toggle -->
+                    <button id="theme-toggle" type="button"
+                        class="rounded-lg p-2 text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+                        aria-label="Basculer le thème">
+                        <!-- sun -->
+                        <svg id="icon-sun" class="h-5 w-5 hidden dark:block" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.8">
+                            <path
+                                d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364-1.414-1.414M7.05 7.05 5.636 5.636m12.728 0-1.414 1.414M7.05 16.95l-1.414 1.414" />
+                            <circle cx="12" cy="12" r="4" />
+                        </svg>
+                        <!-- moon -->
+                        <svg id="icon-moon" class="h-5 w-5 dark:hidden" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.8">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79Z" />
+                        </svg>
+                    </button>
+                    <!-- Mobile menu button -->
+                    <button data-collapse-toggle="navbar-menu" type="button"
+                        class="inline-flex items-center rounded-lg p-2 text-sm text-slate-600 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-600 dark:text-slate-300 dark:hover:bg-slate-800 md:hidden"
+                        aria-controls="navbar-menu" aria-expanded="false">
+                        <span class="sr-only">Ouvrir le menu</span>
+                        <svg class="h-6 w-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M3 5h14a1 1 0 110 2H3a1 1 0 110-2zm0 5h14a1 1 0 110 2H3a1 1 0 110-2zm0 5h14a1 1 0 110 2H3a1 1 0 110-2z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Menu links -->
+            <div id="navbar-menu" class="hidden w-full md:block md:w-auto">
+                <ul
+                    class="mt-2 flex flex-col gap-1 rounded-lg border border-slate-200 bg-white p-2 dark:border-slate-800 dark:bg-slate-900 md:mt-0 md:flex-row md:items-center md:gap-6 md:border-0 md:bg-transparent md:p-0">
+                    <li><a href="#accueil"
+                            class="navlink block rounded px-3 py-2 text-sm font-medium hover:text-brand-600">Accueil</a>
+                    </li>
+                    <li><a href="#projets"
+                            class="navlink block rounded px-3 py-2 text-sm font-medium hover:text-brand-600">Projets</a>
+                    </li>
+                    <li><a href="#competences"
+                            class="navlink block rounded px-3 py-2 text-sm font-medium hover:text-brand-600">Compétences</a>
+                    </li>
+                    <li><a href="#a-propos"
+                            class="navlink block rounded px-3 py-2 text-sm font-medium hover:text-brand-600">À
+                            propos</a></li>
+                    <li><a href="#contact"
+                            class="navlink block rounded px-3 py-2 text-sm font-medium hover:text-brand-600">Contact</a>
+                    </li>
+                    <li class="md:ml-4"><a href="assets/CV_AZOH_Marie-Emmanuelle.pdf" download
+                            class="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-glow hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-400">Télécharger
+                            mon CV<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                <path d="M7 10l5 5 5-5" />
+                                <path d="M12 15V3" />
+                            </svg></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <!-- <section id="accueil" class="relative overflow-hidden">
+   
+    <div class="pointer-events-none absolute -top-24 -left-24 h-[28rem] w-[28rem] blob bg-gradient-to-br from-brand-600 via-accent to-fuchsia-500 opacity-30"></div>
+    <div class="pointer-events-none absolute bottom-[-6rem] right-[-6rem] h-[28rem] w-[28rem] blob bg-gradient-to-tr from-emerald-400 via-brand-600 to-indigo-700 opacity-25"></div>
+
+    <div class="mx-auto max-w-7xl px-4 py-20 sm:py-28 lg:py-32">
+      <div class="grid items-center gap-10 md:grid-cols-2">
+        <div data-aos="fade-right">
+          <p class="mb-3 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-3 py-1 text-xs font-semibold text-slate-600 backdrop-blur dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-300">Disponible pour stage / alternance</p>
+          <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl">
+            <span class="block">AZOH Marie‑Emmanuelle Grâce</span>
+            <span class="mt-2 inline-block bg-gradient-to-r from-brand-600 via-fuchsia-500 to-accent bg-clip-text text-transparent">Étudiante en développement web</span>
+          </h1>
+          <p class="mt-6 max-w-prose text-base/relaxed text-slate-600 dark:text-slate-300">Étudiante passionnée, je conçois des interfaces modernes et des expériences utiles. En formation aujourd’hui, prête à innover demain.</p>
+          <div class="mt-8 flex flex-wrap items-center gap-3">
+            <a href="#projets" class="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-400 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200">Voir mes projets <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
+            <a href="assets/CV_AZOH_Marie-Emmanuelle.pdf" download class="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-brand-400 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800">Télécharger mon CV <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></a>
+          </div>
+          <div class="mt-6 flex flex-wrap gap-2 text-xs text-slate-600 dark:text-slate-300">
+            <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/60 px-3 py-1 backdrop-blur dark:border-slate-700 dark:bg-slate-900/50"><span class="size-1 rounded-full bg-emerald-400"></span> Front‑end</span>
+            <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/60 px-3 py-1 backdrop-blur dark:border-slate-700 dark:bg-slate-900/50"><span class="size-1 rounded-full bg-sky-400"></span> Back‑end</span>
+            <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/60 px-3 py-1 backdrop-blur dark:border-slate-700 dark:bg-slate-900/50"><span class="size-1 rounded-full bg-fuchsia-400"></span> UI & médias</span>
+          </div>
+        </div>
+
+        
+        <div class="relative" data-aos="fade-left">
+          <div class="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-100 via-white to-slate-100 shadow-lg dark:border-slate-800 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900">
+            
+            <img src="assets/hero-placeholder.jpg" alt="Illustration / Photo" class="h-full w-full object-cover opacity-95" />
+          </div>
+          <div class="absolute -bottom-4 -right-4 rounded-xl border border-slate-200 bg-white p-3 text-xs shadow-lg dark:border-slate-800 dark:bg-slate-900">Basée en Côte d’Ivoire • Disponible à distance</div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+    <section id="accueil" class="relative overflow-hidden">
+        <!-- animated blobs background -->
+        <div
+            class="pointer-events-none absolute -top-24 -left-24 h-[28rem] w-[28rem] blob bg-gradient-to-br from-brand-600 via-accent to-fuchsia-500 opacity-30">
+        </div>
+        <div
+            class="pointer-events-none absolute bottom-[-6rem] right-[-6rem] h-[28rem] w-[28rem] blob bg-gradient-to-tr from-emerald-400 via-brand-600 to-indigo-700 opacity-25">
+        </div>
+
+
+        <div class="mx-auto max-w-7xl px-4 py-20 sm:py-28 lg:py-32">
+            <div class="grid items-center gap-10 md:grid-cols-2">
+                <div data-aos="fade-right">
+                    <p
+                        class="mb-3 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-3 py-1 text-xs font-semibold text-slate-600 backdrop-blur dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-300">
+                        Disponible pour stage / alternance</p>
+                    <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl">
+                        <span class="block">AZOH Marie‑Emmanuelle Grâce</span>
+                        <span
+                            class="mt-2 inline-block bg-gradient-to-r from-brand-600 via-fuchsia-500 to-accent bg-clip-text text-transparent">Étudiante
+                            en développement web</span>
+                    </h1>
+                    <p class="mt-6 max-w-prose text-base/relaxed text-slate-600 dark:text-slate-300">Étudiante
+                        passionnée, je conçois des interfaces modernes et des expériences utiles. En formation
+                        aujourd’hui, prête à innover demain.</p>
+                    <div class="mt-8 flex flex-wrap items-center gap-3">
+                        <a href="#projets"
+                            class="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-400 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200">Voir
+                            mes projets <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14" />
+                                <path d="M12 5l7 7-7 7" />
+                            </svg></a>
+                        <a href="assets/CV_AZOH_Marie-Emmanuelle_Grace.pdf" download
+                            class="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-brand-400 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800">Télécharger
+                            mon CV <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                <path d="M7 10l5 5 5-5" />
+                                <path d="M12 15V3" />
+                            </svg></a>
+                    </div>
+                    <div class="mt-6 flex flex-wrap gap-2 text-xs text-slate-600 dark:text-slate-300">
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/60 px-3 py-1 backdrop-blur dark:border-slate-700 dark:bg-slate-900/50"><span
+                                class="size-1 rounded-full bg-emerald-400"></span> Front‑end</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/60 px-3 py-1 backdrop-blur dark:border-slate-700 dark:bg-slate-900/50"><span
+                                class="size-1 rounded-full bg-sky-400"></span> Back‑end</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/60 px-3 py-1 backdrop-blur dark:border-slate-700 dark:bg-slate-900/50"><span
+                                class="size-1 rounded-full bg-fuchsia-400"></span> UI & mobile</span>
+                    </div>
+                </div>
+
+
+                <!-- Hero Image with Hover Swap (Portrait → Code) -->
+                <div id="hero-swap"
+                    class="relative group aspect-[4/3] w-full overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-100 via-white to-slate-100 shadow-lg dark:border-slate-800 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900"
+                    data-aos="fade-left">
+                    <!-- Image visible par défaut: ton portrait -->
+                    <img src="images/manou1.JPG" alt="Portrait — AZOH Marie‑Emmanuelle Grâce"
+                        class="front absolute inset-0 h-full w-full object-cover opacity-100 transition-opacity duration-500 group-hover:opacity-0" />
+                    <!-- Image au survol: visuel de code -->
+                    <img src="images/dev.jpeg" alt="Extrait de code"
+                        class="back absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                    <!-- Filtres & hint -->
+                    <div
+                        class="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/10 via-transparent to-slate-900/10">
+                    </div>
+                    <div
+                        class="absolute bottom-3 right-3 rounded-full border border-white/30 bg-white/70 px-3 py-1 text-[10px] font-semibold text-slate-700 backdrop-blur dark:border-slate-700/60 dark:bg-slate-900/60 dark:text-slate-200">
+                        Survole n'aie pas peur</div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projets" class="relative py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mb-10 flex items-end justify-between">
+                <div>
+                    <h2 class="text-3xl font-extrabold">Projets</h2>
+                    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Quelques réalisations académiques et
+                        personnelles.</p>
+                </div>
+                <!-- Filter placeholder (facultatif) -->
+                <div class="hidden gap-2 md:flex">
+                    <button
+                        class="rounded-full border border-slate-300 px-3 py-1 text-xs hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800">Tous</button>
+                    <button
+                        class="rounded-full border border-slate-300 px-3 py-1 text-xs hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800">Front‑end</button>
+                    <button
+                        class="rounded-full border border-slate-300 px-3 py-1 text-xs hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800">Back‑end</button>
+                    <button
+                        class="rounded-full border border-slate-300 px-3 py-1 text-xs hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800">Mobile</button>
+                </div>
+            </div>
+
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <!-- Card 1 -->
+                <article
+                    class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900"
+                    data-aos="zoom-in" data-aos-delay="0">
+                    <div class="relative aspect-[16/10] overflow-hidden">
+                        <img src="images/mojaveli.png" alt="Projet 1"
+                            class="h-full w-full object-fill transition duration-500 group-hover:scale-105" />
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold">MOJAVELI</h3>
+                        <p class="mt-2 line-clamp-3 text-sm text-slate-600 dark:text-slate-300">Premier projet de site web complet pour l'achat des tickets et la promotion du concert de l'artiste Didi B</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <div class="flex flex-wrap gap-1 text-xs">
+                                <span class="rounded bg-slate-100 px-2 py-0.5 dark:bg-slate-800">HTML</span>
+                                <span class="rounded bg-slate-100 px-2 py-0.5 dark:bg-slate-800">CSS</span>
+                            </div>
+                            <a href="https://marie-emmanuelle2023.github.io/MOJAVELI/" class="text-brand-600 hover:underline">Voir</a>
+                        </div>
+                    </div>
+                </article>
+                <!-- Card 2 -->
+                <article
+                    class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900"
+                    data-aos="zoom-in" data-aos-delay="50">
+                    <div class="relative aspect-[16/10] overflow-hidden">
+                        <img src="images/yango.png" alt="Projet 2"
+                            class="h-full w-full object-fill transition duration-500 group-hover:scale-105" />
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold">YANGO</h3>
+                        <p class="mt-2 line-clamp-3 text-sm text-slate-600 dark:text-slate-300">Refonte de la page d'accueil de Yango pour renforcer les connaissances en Bootstrap</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <div class="flex flex-wrap gap-1 text-xs">
+                                <span class="rounded bg-slate-100 px-2 py-0.5 dark:bg-slate-800">HTML</span>
+                                <span class="rounded bg-slate-100 px-2 py-0.5 dark:bg-slate-800">Bootstrap</span>
+                            </div>
+                            <a href="https://marie-emmanuelle2023.github.io/Yango_site/" class="text-brand-600 hover:underline">Voir</a>
+                        </div>
+                    </div>
+                </article>
+                <!-- Card 3 -->
+                <article
+                    class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900"
+                    data-aos="zoom-in" data-aos-delay="100">
+                    <div class="relative aspect-[16/10] overflow-hidden">
+                        <img src="images/lorraine.png" alt="Projet 3"
+                            class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold">LORRAINE'S</h3>
+                        <p class="mt-2 line-clamp-3 text-sm text-slate-600 dark:text-slate-300">Projet personnel - Création de maquette après apprentissage de Figma</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <div class="flex flex-wrap gap-1 text-xs">
+                                <span class="rounded bg-slate-100 px-2 py-0.5 dark:bg-slate-800">Figma</span>
+                            </div>
+                            <a href="https://www.figma.com/design/5ksH28EfWg5cSuah3d3rNE/Untitled?node-id=0-1&t=horkOsycO1Fsl1JU-1" class="text-brand-600 hover:underline">Voir</a>
+                        </div>
+                    </div>
+                </article>
+                <!-- Card 4 -->
+                <article
+                    class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900"
+                    data-aos="zoom-in" data-aos-delay="150">
+                    <div class="relative aspect-[16/10] overflow-hidden">
+                        <img src="images/nutrizen.png" alt="Projet 4"
+                            class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold">NUTRIZEN</h3>
+                        <p class="mt-2 line-clamp-3 text-sm text-slate-600 dark:text-slate-300">Maquette - Projet de création du site web de Nutrizen</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <div class="flex flex-wrap gap-1 text-xs">
+                                <span class="rounded bg-slate-100 px-2 py-0.5 dark:bg-slate-800">Figma</span>
+                            </div>
+                            <a href="https://www.figma.com/design/q6q5qiTC1wDUIu8Aa98HnZ/Untitled?node-id=0-1&t=zklGna0AYab7zDGs-1" class="text-brand-600 hover:underline">Voir</a>
+                        </div>
+                    </div>
+                </article>
+                <!-- Card 5 -->
+                <article
+                    class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900"
+                    data-aos="zoom-in" data-aos-delay="200">
+                    <div class="relative aspect-[16/10] overflow-hidden">
+                        <img src="images/miam.jpg" alt="Projet 5"
+                            class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold">Miamm App</h3>
+                        <p class="mt-2 line-clamp-3 text-sm text-slate-600 dark:text-slate-300">Application de gestion de recettes de cuisine - Première application réalisée en Flutter pour une évaluation</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <div class="flex flex-wrap gap-1 text-xs">
+                                <span class="rounded bg-slate-100 px-2 py-0.5 dark:bg-slate-800">Flutter</span>
+                            </div>
+                            <a href="detail.html" class="text-brand-600 hover:underline">Voir</a>
+                        </div>
+                    </div>
+                </article>
+                <!-- Card 6 -->
+                <!-- <article
+                    class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900"
+                    data-aos="zoom-in" data-aos-delay="250">
+                    <div class="relative aspect-[16/10] overflow-hidden">
+                        <img src="assets/images/projet6.jpg" alt="Projet 6"
+                            class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold">Titre du projet 6</h3>
+                        <p class="mt-2 line-clamp-3 text-sm text-slate-600 dark:text-slate-300">Courte description du
+                            projet.</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <div class="flex flex-wrap gap-1 text-xs">
+                                <span class="rounded bg-slate-100 px-2 py-0.5 dark:bg-slate-800">Joomla</span>
+                                <span class="rounded bg-slate-100 px-2 py-0.5 dark:bg-slate-800">PHP</span>
+                            </div>
+                            <a href="#" class="text-brand-600 hover:underline">Voir</a>
+                        </div>
+                    </div>
+                </article> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="competences" class="relative py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mb-10 max-w-2xl" data-aos="fade-up">
+                <h2 class="text-3xl font-extrabold">Compétences</h2>
+                <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Un aperçu des technologies et outils avec
+                    lesquels je travaille.</p>
+            </div>
+
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Dev Front -->
+                <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900"
+                    data-aos="fade-up" data-aos-delay="0">
+                    <h3 class="text-lg font-bold">Front‑end</h3>
+                    <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                        <span class="rounded bg-slate-100 px-2 py-1 dark:bg-slate-800">HTML5</span>
+                        <span class="rounded bg-slate-100 px-2 py-1 dark:bg-slate-800">CSS3</span>
+                        <span class="rounded bg-slate-100 px-2 py-1 dark:bg-slate-800">JavaScript</span>
+                        <span class="rounded bg-slate-100 px-2 py-1 dark:bg-slate-800">Tailwind CSS</span>
+                        <span class="rounded bg-slate-100 px-2 py-1 dark:bg-slate-800">Bootstrap</span>
+                        <span class="rounded bg-slate-100 px-2 py-1 dark:bg-slate-800">React</span>
+                        <span class="rounded bg-slate-100 px-2 py-1 dark:bg-slate-800">Vue.js</span>
+                    </div>
+                </div>
+                <!-- Dev Back -->
+                <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900"
+                    data-aos="fade-up" data-aos-delay="50">
+                    <h3 class="text-lg font-bold">Back‑end</h3>
+                    <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                        <span class="rounded bg-slate-100 px-2 py-1 dark:bg-slate-800">PHP</span>
+                        <span class="rounded bg-slate-100 px-2 py-1 dark:bg-slate-800">Laravel</span>
+                        <span class="rounded bg-slate-100 px-2 py-1 dark:bg-slate-800">MySQL</span>
+                        <span class="rounded bg-slate-100 px-2 py-1 dark:bg-slate-800">API REST</span>
+                    </div>
+                </div>
+                <!-- Mobile & CMS -->
+                <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-lg font-bold">Mobile & CMS</h3>
+                    <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                        <span class="rounded bg-slate-100 px-2 py-1 dark:bg-slate-800">Flutter</span>
+                        <span class="rounded bg-slate-100 px-2 py-1 dark:bg-slate-800">WordPress</span>
+                        <span class="rounded bg-slate-100 px-2 py-1 dark:bg-slate-800">Joomla</span>
+                    </div>
+                </div>
+                <!-- Design & Média -->
+                <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900"
+                    data-aos="fade-up" data-aos-delay="150">
+                    <h3 class="text-lg font-bold">Design</h3>
+                    <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                        <span class="rounded bg-slate-100 px-2 py-1 dark:bg-slate-800">Photoshop</span>
+                        <span class="rounded bg-slate-100 px-2 py-1 dark:bg-slate-800">InDesign</span>
+                        <span class="rounded bg-slate-100 px-2 py-1 dark:bg-slate-800">Premiere Pro</span>
+                    </div>
+                </div>
+                <!-- Bureautique -->
+                <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-lg font-bold">Bureautique</h3>
+                    <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                        <span class="rounded bg-slate-100 px-2 py-1 dark:bg-slate-800">Word</span>
+                        <span class="rounded bg-slate-100 px-2 py-1 dark:bg-slate-800">Excel</span>
+                        <span class="rounded bg-slate-100 px-2 py-1 dark:bg-slate-800">PowerPoint</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="a-propos" class="relative py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid items-center gap-10 md:grid-cols-2">
+                <div data-aos="fade-right">
+                    <div
+                        class="relative h-64 w-64 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-lg dark:border-slate-800 dark:bg-slate-900">
+                        <img src="images/manou2.JPG" alt="Portrait" class="h-full w-full object-cover" />
+                    </div>
+                </div>
+                <div data-aos="fade-left">
+                    <h2 class="text-3xl font-extrabold">À propos</h2>
+                    <p class="mt-4 text-sm/relaxed text-slate-600 dark:text-slate-300">Je suis <strong>AZOH
+                            Marie‑Emmanuelle Grâce</strong>, étudiante en développement web passionnée par la création
+                        de solutions numériques modernes et créatives. Curieuse et motivée, j’aime apprendre en continu
+                        et relever de nouveaux défis pour progresser dans le domaine du web. Guidée par mes valeurs de
+                        <em>patience</em>, <em>discipline</em> et <em>courage</em>, je souhaite mettre mon énergie et
+                        mes connaissances au service de projets innovants et utiles.</p>
+                    <div class="mt-6 flex flex-wrap gap-3">
+                        <a href="assets/CV_AZOH_Marie-Emmanuelle.pdf" download
+                            class="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-glow hover:bg-brand-700">Télécharger
+                            mon CV <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                <path d="M7 10l5 5 5-5" />
+                                <path d="M12 15V3" />
+                            </svg></a>
+                        <a href="#contact"
+                            class="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">Me
+                            contacter</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="relative py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mb-10 max-w-2xl" data-aos="fade-up">
+                <h2 class="text-3xl font-extrabold">Contact</h2>
+                <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Un projet, une opportunité ? Écrivez‑moi
+                    directement.</p>
+            </div>
+            <div class="grid gap-8 md:grid-cols-2">
+                <!-- Form (Formspree prêt à l'emploi) -->
+                <form action="mailto:azohmvnou@gmail.com" method="POST"
+                    class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900"
+                    data-aos="fade-right">
+                    <div class="mb-4">
+                        <label for="name" class="mb-2 block text-sm font-medium">Nom</label>
+                        <input id="name" name="name" type="text"
+                            class="block w-full rounded-lg border border-slate-300 bg-white p-2.5 text-sm placeholder-slate-400 focus:border-brand-500 focus:ring-brand-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100"
+                            placeholder="Votre nom" required />
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="mb-2 block text-sm font-medium">Email</label>
+                        <input id="email" name="email" type="email"
+                            class="block w-full rounded-lg border border-slate-300 bg-white p-2.5 text-sm placeholder-slate-400 focus:border-brand-500 focus:ring-brand-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100"
+                            placeholder="vous@example.com" required />
+                    </div>
+                    <div class="mb-4">
+                        <label for="message" class="mb-2 block text-sm font-medium">Message</label>
+                        <textarea id="message" name="message" rows="5"
+                            class="block w-full resize-y rounded-lg border border-slate-300 bg-white p-2.5 text-sm placeholder-slate-400 focus:border-brand-500 focus:ring-brand-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100"
+                            placeholder="Votre message..."></textarea>
+                    </div>
+                    <button type="submit"
+                        class="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-glow hover:bg-brand-700">Envoyer<svg
+                            class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m22 2-7 20-4-9-9-4 20-7Z" />
+                        </svg></button>
+                </form>
+
+                <!-- Infos -->
+                <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900"
+                    data-aos="fade-left">
+                    <div class="flex items-center gap-3">
+                        <span
+                            class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-200">@</span>
+                        <div>
+                            <p class="text-sm font-semibold">Email</p>
+                            <a href="mailto:azohmvnou@gmail.com"
+                                class="text-sm text-brand-600 hover:underline">azohmvnou@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="mt-5 flex items-center gap-3">
+                        <span
+                            class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-200">in</span>
+                        <div>
+                            <p class="text-sm font-semibold">LinkedIn</p>
+                            <a href="www.linkedin.com/in/marie-emmanuelle-azoh" class="text-sm text-brand-600 hover:underline">Marie‑Emmanuelle AZOH</a>
+                        </div>
+                    </div>
+                    <div class="mt-5 flex items-center gap-3">
+                        <span
+                            class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-200">GH</span>
+                        <div>
+                            <p class="text-sm font-semibold">GitHub</p>
+                            <a href="https://github.com/Marie-Emmanuelle2023" class="text-sm text-brand-600 hover:underline">Marie-Emmanuelle2023</a>
+                        </div>
+                    </div>
+                    <div
+                        class="mt-6 rounded-lg border border-dashed border-slate-300 p-3 text-xs text-slate-500 dark:border-slate-700">
+                       Contactez moi sur<code> <a href="https://wa.me/2250767982817" class="underline">WhatsApp</a></code> pour accélérer les
+                        échanges.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="border-t border-slate-200 bg-white py-6 dark:border-slate-800 dark:bg-slate-950">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-4 text-xs text-slate-500 sm:px-6 lg:px-8">
+            <p>© <span id="year"></span> AZOH Marie‑Emmanuelle Grâce. Tous droits réservés.</p>
+            <a href="#accueil"
+                class="inline-flex items-center gap-1 rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800">Haut
+                de page ↑</a>
+        </div>
+    </footer>
+
+    <!-- ===== Back-to-top Floating Button ===== -->
+    <button id="toTop"
+        class="fixed bottom-5 right-5 hidden rounded-full bg-brand-600 p-3 text-white shadow-glow hover:bg-brand-700 focus:outline-none"
+        aria-label="Remonter">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m18 15-6-6-6 6" />
+        </svg>
+    </button>
+
+    <!-- Flowbite + AOS + Helpers -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Thème (dark / light) avec préférence sauvegardée
+        const themeKey = 'theme';
+        function applyTheme(pref) {
+            const dark = pref === 'dark' || (!pref && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            document.documentElement.classList.toggle('dark', dark);
+        }
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.contains('dark');
+            const next = isDark ? 'light' : 'dark';
+            localStorage.setItem(themeKey, next);
+            applyTheme(next);
+        }
+        applyTheme(localStorage.getItem(themeKey));
+        document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
+
+        // AOS
+        AOS.init({ duration: 700, offset: 80, once: true });
+
+        // Active nav link on scroll
+        const sections = ['accueil', 'projets', 'competences', 'a-propos', 'contact'];
+        const navlinks = Array.from(document.querySelectorAll('.navlink'));
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                const link = navlinks.find(a => a.getAttribute('href') === `#${id}`);
+                if (link) {
+                    if (entry.isIntersecting) {
+                        navlinks.forEach(a => a.classList.remove('text-brand-600'));
+                        link.classList.add('text-brand-600');
+                    }
+                }
+            });
+        }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.02 });
+        sections.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) observer.observe(el);
+        });
+
+        // Back to top
+        const toTop = document.getElementById('toTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 560) toTop.classList.remove('hidden'); else toTop.classList.add('hidden');
+        });
+        toTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Miamm — Application de recettes (Flutter) — AZOH Marie-Emmanuelle Grâce</title>
+  <meta name="description" content="Miamm est une application mobile Flutter pour créer, noter et gérer des recettes, avec stockage hors-ligne (SQLite)." />
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { manrope: ['Manrope','ui-sans-serif','system-ui'] },
+          colors: {
+            brand: { 600:'#7c3aed', 700:'#6d28d9' },
+            accent:'#E8144A'
+          }
+        }
+      }
+    };
+  </script>
+  <!-- Flowbite + AOS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    .device-frame{ border-radius:2rem; box-shadow:0 20px 45px rgba(2,6,23,.25); }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200 font-manrope">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-white/80 dark:bg-slate-950/70 border-b border-white/20 dark:border-slate-800">
+    <nav class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
+      <a href="index.html" class="inline-flex items-center gap-2 text-sm font-semibold">
+        <span class="rounded-lg bg-brand-600 text-white px-2 py-1">A</span>
+        Retour aux projets
+      </a>
+      <div class="flex items-center gap-2">
+        <a href="../assets/CV_AZOH_Marie-Emmanuelle_Grace.pdf" download
+           class="hidden sm:inline-flex rounded-lg bg-brand-600 px-4 py-2 text-xs font-semibold text-white hover:bg-brand-700">
+          Télécharger mon CV
+        </a>
+        <button id="theme-toggle"
+          class="rounded-lg p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+          aria-label="Basculer le thème">
+          <svg id="icon-sun" class="h-5 w-5 hidden dark:block" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.8">
+            <path d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364-1.414-1.414M7.05 7.05 5.636 5.636m12.728 0-1.414 1.414M7.05 16.95l-1.414 1.414"/>
+            <circle cx="12" cy="12" r="4"/>
+          </svg>
+          <svg id="icon-moon" class="h-5 w-5 dark:hidden" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.8">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79Z"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero App Store-like -->
+    <section class="mx-auto max-w-6xl px-4 py-10 sm:py-14 lg:py-16">
+      <div class="grid items-start gap-8 lg:grid-cols-[auto,1fr]">
+        <img src="images/ecran.png" alt="Icône Miamm"
+             class="h-20 w-20 object-cover rounded-2xl border border-slate-200 bg-white p-2 shadow-sm dark:border-slate-800"/>
+        <div>
+          <h1 class="text-3xl sm:text-4xl font-extrabold">Miamm — Gestion de recettes</h1>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+            Application <strong>Flutter</strong> pour créer, noter et organiser vos recettes.
+            Fonctionne <strong>hors-ligne</strong> grâce à <strong>SQLite</strong>.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2 text-xs">
+            <span class="rounded-full bg-slate-100 px-3 py-1 dark:bg-slate-800">Plateforme : Android/iOS</span>
+            <span class="rounded-full bg-slate-100 px-3 py-1 dark:bg-slate-800">Statut : Projet étudiant</span>
+            <span class="rounded-full bg-slate-100 px-3 py-1 dark:bg-slate-800">Tech : Flutter, Dart, SQLite</span>
+          </div>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#video" class="rounded-lg bg-slate-900 px-4 py-2 text-xs font-semibold text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900">Voir la vidéo</a>
+            <a href="#captures" class="rounded-lg border border-slate-300 px-4 py-2 text-xs font-semibold hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">Captures d’écran</a>
+            <!-- <a href="../assets/miamm.apk" class="rounded-lg border border-slate-300 px-4 py-2 text-xs font-semibold hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800" download>Télécharger APK (optionnel)</a> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Demo -->
+    <section id="video" class="mx-auto max-w-6xl px-4 pb-8">
+      <h2 class="text-xl font-bold">Vidéo démo</h2>
+      <div class="mt-4 overflow-hidden rounded-2xl border border-slate-200 bg-black shadow-lg dark:border-slate-800">
+        <video controls playsinline poster="../assets/images/miamm-cover.jpg" class="w-full h-auto object-fill">
+          <source src="images/video-miam.mov" type="video/mp4" />
+          Votre navigateur ne supporte pas la vidéo HTML5. Téléchargez la démo :
+          <a href="../assets/videos/miamm-demo.mp4">MP4</a>
+        </video>
+      </div>
+      <!-- <p class="mt-2 text-xs text-slate-500">Astuce : exporte un MP4 encodé H.264 (≈720p) pour compatibilité maximale.</p> -->
+    </section>
+
+    <!-- Carousel Screenshots -->
+    <section id="captures" class="mx-auto max-w-6xl px-4 py-8">
+      <div class="flex items-end justify-between">
+        <h2 class="text-xl font-bold">Captures d’écran</h2>
+        <div class="text-xs text-slate-500">Glisse ou utilise les flèches</div>
+      </div>
+
+      <div id="carousel-miamm" class="relative mt-4" data-carousel="static">
+        <!-- Slider wrapper -->
+        <div class="relative h-[520px] overflow-hidden rounded-3xl bg-slate-100 p-6 dark:bg-slate-900 device-frame">
+          <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+            <img src="images/ecran.png" class="mx-auto h-full rounded-2xl object-contain" alt="Capture 1"/>
+          </div>
+          <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="images/7a69e351-ddd0-45fb-9666-143322ac402d.jpg" class="mx-auto h-full rounded-2xl object-contain" alt="Capture 2"/>
+          </div>
+          <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="../assets/images/miamm-3.jpg" class="mx-auto h-full rounded-2xl object-contain" alt="Capture 3"/>
+          </div>
+          <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="../assets/images/miamm-4.jpg" class="mx-auto h-full rounded-2xl object-contain" alt="Capture 4"/>
+          </div>
+          <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="../assets/images/miamm-5.jpg" class="mx-auto h-full rounded-2xl object-contain" alt="Capture 5"/>
+          </div>
+        </div>
+        <!-- Slider controls -->
+        <button type="button" class="group absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 shadow hover:bg-white dark:bg-slate-800/80" data-carousel-prev aria-label="Précédent">
+          <svg class="h-5 w-5 text-slate-700 group-hover:-translate-x-0.5 transition dark:text-slate-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button type="button" class="group absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 shadow hover:bg-white dark:bg-slate-800/80" data-carousel-next aria-label="Suivant">
+          <svg class="h-5 w-5 text-slate-700 group-hover:translate-x-0.5 transition dark:text-slate-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+      </div>
+
+      <!-- Thumbnails + Lightbox -->
+      <div class="mt-4 grid grid-cols-3 gap-3 sm:grid-cols-5">
+        <img data-shot="images/ecran.png" src="images/ecran.png" class="thumb h-28 w-full cursor-zoom-in rounded-xl object-cover" alt="Miniature 1"/>
+        <img data-shot="images/9251b6e5-9980-4419-944c-92c0096bba59.jpg" src="images/9251b6e5-9980-4419-944c-92c0096bba59.jpg" class="thumb h-28 w-full cursor-zoom-in rounded-xl object-cover" alt="Miniature 2"/>
+        <img data-shot="images/7eb75da1-6311-4f7f-a03c-e9c06a00ccb3.jpg" src="images/7eb75da1-6311-4f7f-a03c-e9c06a00ccb3.jpg" class="thumb h-28 w-full cursor-zoom-in rounded-xl object-cover" alt="Miniature 3"/>
+        <img data-shot="images/7a69e351-ddd0-45fb-9666-143322ac402d.jpg" src="images/7a69e351-ddd0-45fb-9666-143322ac402d.jpg" class="thumb h-28 w-full cursor-zoom-in rounded-xl object-cover" alt="Miniature 4"/>
+        <img data-shot="images/Screenshot_1756168962.png" src="images/Screenshot_1756168962.png" class="thumb h-28 w-full cursor-zoom-in rounded-xl object-cover" alt="Miniature 5"/>
+      </div>
+
+      <!-- Modal Lightbox -->
+      <div id="lightbox" tabindex="-1" aria-hidden="true"
+           class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 p-4">
+        <button id="lightbox-close" class="absolute right-4 top-4 rounded-full bg-white/90 p-2 shadow hover:bg-white" aria-label="Fermer">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+        <img id="lightbox-img" src="" class="max-h-[90vh] w-auto rounded-xl shadow-xl" alt="Capture agrandie"/>
+      </div>
+    </section>
+
+    <!-- Features / Description -->
+    <section class="mx-auto max-w-6xl px-4 py-10">
+      <div class="grid gap-10 lg:grid-cols-3">
+        <div class="lg:col-span-2 space-y-6">
+          <div>
+            <h2 class="text-xl font-bold">À propos de l’application</h2>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+              Miamm vous aide à centraliser vos recettes : créer, modifier, noter, mettre en favoris et ajouter des photos.
+              L’application fonctionne hors-ligne et reste fluide, même sur des appareils modestes.
+            </p>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold">Fonctionnalités principales</h2>
+            <ul class="mt-3 grid grid-cols-1 gap-2 text-sm text-slate-700 dark:text-slate-300">
+              <li class="flex items-start gap-2"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-600"></span> Création/édition de recettes (nom, ingrédients, étapes, images)</li>
+              <li class="flex items-start gap-2"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-600"></span> Favoris et note par recette</li>
+              <li class="flex items-start gap-2"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-600"></span> Recherche rapide et tri</li>
+              <li class="flex items-start gap-2"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-600"></span> Carousel d’images par recette</li>
+              <li class="flex items-start gap-2"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-600"></span> Stockage local avec SQLite (mode hors-ligne)</li>
+            </ul>
+          </div>
+        </div>
+        <aside class="space-y-6">
+          <div class="rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+            <h3 class="text-sm font-bold">Stack technique</h3>
+            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+              <span class="rounded bg-slate-100 px-2 py-1 dark:bg-slate-800">Flutter</span>
+              <span class="rounded bg-slate-100 px-2 py-1 dark:bg-slate-800">Dart</span>
+              <span class="rounded bg-slate-100 px-2 py-1 dark:bg-slate-800">SQLite</span>
+              <span class="rounded bg-slate-100 px-2 py-1 dark:bg-slate-800">Material 3</span>
+            </div>
+          </div>
+          <div class="rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+            <h3 class="text-sm font-bold">Liens</h3>
+            <div class="mt-3 flex flex-col gap-2 text-sm">
+              <span class="text-slate-500">Demo : sur cette page</span>
+              <a href="#captures" class="text-brand-600 hover:underline">Captures</a>
+              <a href="index.html" class="text-slate-600 hover:underline dark:text-slate-300">← Retour aux projets</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white py-6 dark:border-slate-800 dark:bg-slate-950 text-xs text-slate-500">
+    <div class="mx-auto max-w-6xl px-4">© <span id="year"></span> AZOH Marie-Emmanuelle Grâce</div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Theme
+    const themeKey='theme';
+    function applyTheme(p){
+      const d = p==='dark' || (!p && matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.classList.toggle('dark', d);
+    }
+    applyTheme(localStorage.getItem(themeKey));
+    document.getElementById('theme-toggle')?.addEventListener('click',()=>{
+      const isDark = document.documentElement.classList.contains('dark');
+      const next = isDark ? 'light' : 'dark';
+      localStorage.setItem(themeKey, next);
+      applyTheme(next);
+    });
+    // AOS
+    AOS.init({duration:700, offset:80, once:true});
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Lightbox
+    const modal = document.getElementById('lightbox');
+    const img   = document.getElementById('lightbox-img');
+    const close = document.getElementById('lightbox-close');
+    document.querySelectorAll('.thumb').forEach(t=>{
+      t.addEventListener('click', ()=>{
+        img.src = t.dataset.shot;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      });
+    });
+    close.addEventListener('click', ()=>{
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    });
+    modal.addEventListener('click', (e)=>{
+      if(e.target === modal){
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    });
+  </script>
+</body>
+</html>
