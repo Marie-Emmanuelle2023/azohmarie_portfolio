@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NEXORA — Étude de cas | AZOH Marie‑Emmanuelle Grâce</title>
+    <meta name="description"
+        content="Étude de cas du projet Nexora : application de gestion de projets développée pour une sous-direction informatique." />
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { manrope: ['Manrope', 'ui-sans-serif', 'system-ui'] },
+                    colors: {
+                        brand: {
+                            50: '#f5f3ff', 100: '#ede9fe', 200: '#ddd6fe', 300: '#c4b5fd',
+                            400: '#a78bfa', 500: '#8b5cf6', 600: '#7c3aed', 700: '#6d28d9',
+                            800: '#5b21b6', 900: '#4c1d95'
+                        },
+                        accent: '#E8144A'
+                    },
+                    boxShadow: { glow: '0 10px 30px rgba(139, 92, 246, 0.35)' }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root { color-scheme: light dark; }
+        html, body { height: 100%; }
+        body { font-family: Manrope, ui-sans-serif, system-ui; }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200 font-manrope">
+
+    <!-- ===== NAVBAR ===== -->
+    <header
+        class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60 bg-white/80 dark:bg-slate-950/70 border-b border-white/20 dark:border-slate-800">
+        <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Primary">
+            <div class="flex h-16 items-center justify-between">
+                <a href="index.html" class="flex items-center gap-2">
+                    <span
+                        class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-brand-600 text-white shadow-glow">A</span>
+                    <span class="text-sm font-semibold tracking-wide text-slate-700 dark:text-slate-100">AZOH
+                        Marie‑Emmanuelle Grâce</span>
+                </a>
+                <a href="index.html#projets"
+                    class="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800">
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5" />
+                        <path d="m12 19-7-7 7-7" />
+                    </svg>
+                    Retour aux projets
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="relative overflow-hidden py-16 sm:py-20">
+        <div
+            class="pointer-events-none absolute -top-24 -left-24 h-[26rem] w-[26rem] rounded-full bg-gradient-to-br from-brand-600 via-accent to-fuchsia-500 opacity-20 blur-[80px]">
+        </div>
+        <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <p class="mb-3 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-3 py-1 text-xs font-semibold text-slate-600 backdrop-blur dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-300">
+                Projet d'entreprise · Confidentiel
+            </p>
+            <h1 class="text-3xl font-extrabold tracking-tight sm:text-5xl">NEXORA</h1>
+            <p class="mt-3 max-w-2xl text-base text-slate-600 dark:text-slate-300">
+                Application de gestion de projets, d'incidents et d'assistances pour une sous-direction informatique.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-2 text-xs">
+                <span class="rounded-full bg-slate-100 px-3 py-1 font-medium dark:bg-slate-800">PHP 8.4</span>
+                <span class="rounded-full bg-slate-100 px-3 py-1 font-medium dark:bg-slate-800">Laravel 13</span>
+                <span class="rounded-full bg-slate-100 px-3 py-1 font-medium dark:bg-slate-800">PostgreSQL</span>
+                <span class="rounded-full bg-slate-100 px-3 py-1 font-medium dark:bg-slate-800">JWT (Tymon)</span>
+                <span class="rounded-full bg-slate-100 px-3 py-1 font-medium dark:bg-slate-800">Blade / jQuery / AJAX</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTENU ===== -->
+    <section class="relative pb-20">
+        <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+
+            <div class="mb-4 rounded-xl border border-dashed border-slate-300 bg-white/60 p-4 text-xs text-slate-500 dark:border-slate-700 dark:bg-slate-900/40">
+                Par souci de confidentialité, ce projet étant réalisé pour le compte d'une entreprise, ni le nom du
+                client, ni de démo en ligne, ni le code source ne sont partagés ici. Cette page présente uniquement
+                un aperçu général du travail réalisé.
+            </div>
+
+            <!-- Contexte -->
+            <div class="mt-10 grid gap-10 md:grid-cols-3">
+                <div class="md:col-span-1">
+                    <h2 class="text-xl font-bold">Contexte</h2>
+                </div>
+                <div class="md:col-span-2 text-sm/relaxed text-slate-600 dark:text-slate-300">
+                    <p>Nexora est un outil interne destiné à une sous-direction informatique pour centraliser le
+                        suivi des projets, des livraisons, des incidents et des demandes d'assistance de ses équipes.
+                        L'objectif était de remplacer un suivi manuel par une plateforme unique, avec des tableaux de
+                        bord adaptés à chaque rôle (administrateur, chef de service, agent).</p>
+                </div>
+            </div>
+
+            <!-- Mon rôle -->
+            <div class="mt-10 grid gap-10 md:grid-cols-3">
+                <div class="md:col-span-1">
+                    <h2 class="text-xl font-bold">Mon rôle</h2>
+                </div>
+                <div class="md:col-span-2 text-sm/relaxed text-slate-600 dark:text-slate-300">
+                    <p>En charge du développement backend dans son intégralité (architecture Repository → Service →
+                        Controller → Resource → Request, authentification JWT, API REST documentée avec Swagger),
+                        avec une contribution active sur le frontend Blade/jQuery aux côtés d'un collègue en charge
+                        de l'interface.</p>
+                </div>
+            </div>
+
+            <!-- Fonctionnalités -->
+            <div class="mt-10 grid gap-10 md:grid-cols-3">
+                <div class="md:col-span-1">
+                    <h2 class="text-xl font-bold">Fonctionnalités clés</h2>
+                </div>
+                <div class="md:col-span-2">
+                    <ul class="grid gap-3 text-sm text-slate-600 dark:text-slate-300 sm:grid-cols-2">
+                        <li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-600"></span>Tableaux de bord dynamiques selon le rôle utilisateur</li>
+                        <li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-600"></span>Gestion des services et des équipes</li>
+                        <li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-600"></span>Suivi des livraisons avec circuit de validation</li>
+                        <li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-600"></span>Gestion des incidents et demandes d'assistance</li>
+                        <li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-600"></span>Recherche globale, filtres et pagination</li>
+                        <li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-600"></span>Notifications par email automatisées</li>
+                        <li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-600"></span>Rapports et indicateurs (KPI)</li>
+                        <li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-600"></span>Gestion des accès et désactivation de comptes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Galerie -->
+            <div class="mt-14">
+                <h2 class="text-xl font-bold">Aperçu (captures)</h2>
+                <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Quelques écrans illustrant le travail
+                    réalisé côté interface et côté backend.</p>
+
+                <div class="mt-6 grid gap-4 sm:grid-cols-2">
+                    <figure class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+                        <img src="images/nexora-dashboard.png" alt="Nexora - Interface frontend"
+                            class="aspect-[16/10] w-full object-cover" />
+                        <figcaption class="p-3 text-xs text-slate-500 dark:text-slate-400">Interface — tableau de bord</figcaption>
+                    </figure>
+                    <figure class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+                        <img src="images/api_rest.png" alt="Nexora - Documentation API backend"
+                            class="aspect-[16/10] w-full object-cover" />
+                        <figcaption class="p-3 text-xs text-slate-500 dark:text-slate-400">Backend — documentation API (Swagger)</figcaption>
+                    </figure>
+                    <figure class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+                        <img src="images/kpi.png" alt="Nexora - Capture supplémentaire"
+                            class="aspect-[16/10] w-full object-cover" />
+                        <figcaption class="p-3 text-xs text-slate-500 dark:text-slate-400">Clés de performance</figcaption>
+                    </figure>
+                    <figure class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+                        <img src="images/bibliotheque.png" alt="Nexora - Capture supplémentaire"
+                            class="aspect-[16/10] w-full object-cover" />
+                        <figcaption class="p-3 text-xs text-slate-500 dark:text-slate-400">Bibliothèque de ressources</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="mt-16 flex flex-wrap items-center gap-3 border-t border-slate-200 pt-8 dark:border-slate-800">
+                <a href="index.html#projets"
+                    class="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">
+                    Voir les autres projets
+                </a>
+                <a href="index.html#contact"
+                    class="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-glow hover:bg-brand-700">
+                    Me contacter
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="border-t border-slate-200 bg-white py-6 dark:border-slate-800 dark:bg-slate-950">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-4 text-xs text-slate-500 sm:px-6 lg:px-8">
+            <p>© <span id="year"></span> AZOH Marie‑Emmanuelle Grâce. Tous droits réservés.</p>
+            <a href="index.html"
+                class="inline-flex items-center gap-1 rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800">Retour
+                à l'accueil</a>
+        </div>
+    </footer>
+
+    <script>
+        // Thème (cohérent avec le reste du site)
+        const themeKey = 'theme';
+        function applyTheme(pref) {
+            const dark = pref === 'dark' || (!pref && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            document.documentElement.classList.toggle('dark', dark);
+        }
+        applyTheme(localStorage.getItem(themeKey));
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
